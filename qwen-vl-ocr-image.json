@@ -1,0 +1,62 @@
+{
+    "provider": "aliyun",
+    "title": "Aliyun Qwen VL OCR",
+    "request": {
+        "url": "https://dashscope.aliyuncs.com/api/v1/services/aigc/multimodal-generation/generation",
+        "method": "POST",
+        "headers": {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer {{api_key}}"
+        },
+        "body": {
+            "model": "qwen-vl-ocr-1028",
+            "input": {
+                "messages": [
+                    {
+                        "role": "system",
+                        "content": "You are a helpful assistant."
+                    },
+                    {
+                        "role": "user",
+                        "content": [
+                            {
+                                "type": "image",
+                                "image": "{{image_url}}",
+                                "min_pixels": 3136,
+                                "max_pixels": 6422528,
+                                "enable_rotate": true
+                            },
+                            {
+                                "type": "text",
+                                "text": "Please output only the text content from the image without any additional descriptions or formatting."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "parameters": {
+                "ocr_options": {
+                    "task": "text_recognition"
+                }
+            }
+        }
+    },
+    "response": {
+        "path": "output.choices[0].message.content[0].text"
+    },
+    "description": "使用阿里云通义千问OCR模型，从图像中提取文本。支持多种语言：汉语、英语、阿拉伯语、法语、德语、意大利语、日语、韩语、葡萄牙语、俄语、西班牙语、越南语。",
+    "api_document": "https://help.aliyun.com/zh/model-studio/qwen-vl-ocr#ea4e1d92dbry2",
+    "instructions": [
+        "Models: qwen-vl-ocr-1028 (for test), qwen-vl-ocr (for production)",
+        "本地图像链接示例：data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA...",
+        "本地图片的Base64编码（格式：data:image/{format};base64,{base64_string}）",
+        "图片URL（格式：https://{domain}/{path}）",
+        "支持的图片格式：BMP、ICNS、ICO、JPEG、JPEG2000、PNG、SGI、TIFF、WEBP",
+        "图片大小：最小3136像素，最大6422528像素",
+        "图片比例：最大200:1或1:200",
+        "图片像素：最大1568万像素，最大2352万像素",
+        "图片旋转：支持旋转",
+        "图片质量：文字太小或分辨率低时可能出现幻觉",
+        "图片限制：不支持多图识别，仅处理第一张图像，不支持多轮对话能力"
+    ]
+}
