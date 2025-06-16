@@ -1,0 +1,29 @@
+{
+    "provider": "ollama",
+    "title": "Ollama Image Abstract",
+    "request": {
+        "url": "http://localhost:11434/api/generate",
+        "method": "POST",
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "body": {
+            "model": "qwen2.5vl:7b",
+            "stream": false,
+            "prompt": "请对图片类型进行类型分类和内容分类。类型分类例如：照片、票据、文档、屏幕截图、等等，内容分类例如：火车票、人物、发票、风景、表格、文本、动物、植物、建筑、车辆、食物、等等。输出示例：类型：照片\n内容：人物",
+            "images": [
+                "{{image}}"
+            ]
+        }
+    },
+    "response": {
+        "auto_detect": true,
+        "response_field_name": "response",
+        "path": "response"
+    },
+    "description": "",
+    "api_documents": [
+        "https://github.com/ollama/ollama/blob/main/docs/api.md",
+        "https://qwenlm.github.io/zh/blog/qwen2.5-vl/"
+    ]
+}
