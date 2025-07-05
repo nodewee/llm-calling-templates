@@ -48,8 +48,8 @@
     "api_document": "https://help.aliyun.com/zh/model-studio/qwen-vl-ocr#ea4e1d92dbry2",
     "instructions": [
         "Models: qwen-vl-ocr-1028 (for test), qwen-vl-ocr (for production)",
-        "本地图像链接示例：data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA...",
-        "本地图片的Base64编码（格式：data:image/{format};base64,{base64_string}）",
+        "本地图像链接示例(image_url)格式：data:image/{format};base64,{base64_string}）",
+        "本地图像链接示例(image_url)示例：data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA...",
         "图片URL（格式：https://{domain}/{path}）",
         "支持的图片格式：BMP、ICNS、ICO、JPEG、JPEG2000、PNG、SGI、TIFF、WEBP",
         "图片大小：最小3136像素，最大6422528像素",
